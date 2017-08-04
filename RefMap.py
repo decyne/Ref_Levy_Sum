@@ -27,15 +27,23 @@ class RefMap:
 	def incAssessor(self, assessor):
 		self._incLevy(assessor,self.ASSESS_LEVY)
 
-  # Return the levies owed for this referee
+	# Return the levies owed for this referee
 	def getLevy(self, referee):
 		try:
 			attributes = self.rmap[referee]
 			return attributes.levy
-		except KEYVALUEERROR:
+		except KeyError:
 			return 0
 
 	def printLevy(self):
 		for name in self.rmap:
 			levy = self.rmap[name].levy
 			print(name, levy)
+
+	def __add__(self,other):
+		summed_refmap = RefMap("Merged")
+		summed_refmap.rmap = other.rmap.copy()
+		
+		try:
+			
+		return summed_refmap

@@ -1,4 +1,5 @@
 from RefMap import RefMap
+from RefValues import RefValues
 import csv
 import sys
 
@@ -20,11 +21,16 @@ for file_name in file_names:
 		for row in roster:
 			referee = row[REF_COLUMN]
 			assessor = row[ASSESSOR_COLUMN]
-			Round.incReferee(referee)
-			Round.incAssessor(assessor)
+			# Increment levies if referee cell is not empty
+			if referee:
+				Round.incReferee(referee)
+			if assessor:
+				Round.incAssessor(assessor)
 
 	round_list.append(Round)
 
 for Round in round_list:
 	print("----")
 	Round.printLevy()
+
+round_list[0] + round_list[1]
