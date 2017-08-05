@@ -5,11 +5,12 @@ import sys
 
 REF_COLUMN = 1
 ASSESSOR_COLUMN = 2
+OUTPUT_NAME = "output.csv"
 
 # Accepts a 2d matrix and converts it to a csv file
 def exportToCSV(matrix2D):
 	# Write to csv file
-	with open("output.csv","w") as total_csv:
+	with open(OUTPUT_NAME,"w") as total_csv:
 		writer = csv.writer(total_csv)
 		writer.writerows(matrix2D)
 
